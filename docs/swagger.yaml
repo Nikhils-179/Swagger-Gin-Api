@@ -1,0 +1,146 @@
+basePath: /api/v1/user
+definitions:
+  models.UserCreateParam:
+    properties:
+      address:
+        type: string
+      age:
+        type: integer
+      name:
+        type: string
+    type: object
+  models.UserUpdateParam:
+    properties:
+      address:
+        type: string
+      age:
+        type: integer
+      name:
+        type: string
+    type: object
+  response.JSONBadReqResult:
+    properties:
+      code:
+        type: integer
+      data: {}
+      message:
+        type: string
+    type: object
+  response.JSONIntServerErrReqResult:
+    properties:
+      code:
+        example: 500
+        type: integer
+      data: {}
+      message:
+        example: Error DataBase
+        type: string
+    type: object
+  response.JSONSuccessResult:
+    properties:
+      code example:
+        type: integer
+      data: {}
+      message:
+        type: string
+    type: object
+host: localhost:8080/
+info:
+  contact:
+    name: Nikhil Shrivastava
+    url: https://github.com/Nikhils-179
+  description: Sample Description
+  title: Documenting API (User-Details)
+  version: "1"
+paths:
+  /create:
+    post:
+      consumes:
+      - application/json
+      description: CreateUser API endpoint creates User
+      parameters:
+      - description: User Data
+        in: body
+        name: users
+        required: true
+        schema:
+          $ref: '#/definitions/models.UserCreateParam'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.JSONSuccessResult'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/response.JSONBadReqResult'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response.JSONIntServerErrReqResult'
+      tags:
+      - Users
+  /detail/{id}:
+    get:
+      description: Returns a user by ID from the database
+      parameters:
+      - description: User ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.JSONSuccessResult'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/response.JSONBadReqResult'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response.JSONIntServerErrReqResult'
+      summary: Get a user by ID
+      tags:
+      - Users
+  /update/{id}:
+    put:
+      consumes:
+      - application/json
+      description: UpdateUser API endpoint updates an existing user. only the provided
+        fields will be updated.
+      parameters:
+      - description: User ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      - description: User Data
+        in: body
+        name: user
+        required: true
+        schema:
+          $ref: '#/definitions/models.UserUpdateParam'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.JSONSuccessResult'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/response.JSONBadReqResult'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response.JSONIntServerErrReqResult'
+      summary: Updates an existing user
+      tags:
+      - Users
+swagger: "2.0"
