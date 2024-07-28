@@ -81,11 +81,14 @@ go run .
 
 ```
 
-##Screenshot
-<img width="500" alt="Screenshot 2024-07-29 at 3 24 47 AM" src="https://github.com/user-attachments/assets/bd06d93c-dc20-4ea0-baba-7943b3de1988">
-<img width="500" alt="Screenshot 2024-07-29 at 3 18 56 AM" src="https://github.com/user-attachments/assets/a5ac049d-ca70-47ae-97d2-9635d4a7a829">
-
-
 ## Configuration Details
 
 Backend Configuration: The Go server implements the Rest api services  using Gin Framework. It handles the incoming request with designing and tesitng with swagger and writes data in database 
+
+## Screenshot
+
+
+<img width="800" alt="Screenshot 2024-07-29 at 3 24 47 AM" src="https://github.com/user-attachments/assets/bd06d93c-dc20-4ea0-baba-7943b3de1988">
+<img width="800" alt="Screenshot 2024-07-29 at 3 18 56 AM" src="https://github.com/user-attachments/assets/a5ac049d-ca70-47ae-97d2-9635d4a7a829">
+
+
